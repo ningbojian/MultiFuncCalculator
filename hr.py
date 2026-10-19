@@ -1,4 +1,6 @@
 import os
+import subprocess
+import sys
 import tkinter as tk
 # 主程序开始
 opened = []
@@ -120,7 +122,7 @@ def click_1():
         PRINT(result)  # 按格式输出结果
 
 def click_2():
-    os.system('python hrstep.py')#C://Users//Lenovo//Desktop//a//solution//hr//hrstep.py
+    subprocess.Popen([sys.executable, 'hrstep.py'])#C://Users//Lenovo//Desktop//a//solution//hr//hrstep.py
 
 window = tk.Tk()
 window.title("欢迎使用华容道/八数码计算器")

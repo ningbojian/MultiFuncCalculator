@@ -48,7 +48,7 @@ def numGuess():
             labelqval('一次答对！' + '\n花费的时间是' + str(total_time) + 's'+'\n太慢了，你是在发呆吗？')
     elif num<10:
         if total_time <= 15:
-            labelqval('厉害啦！！！10次以内就猜中了\n尝试次数 : ' + str(num) + '\n花费的时间是' + str(total_time) + 's'+'\n你真是个小机灵鬼!!')
+            labelqval('厉害啦！！！10次以内就猜中了\n尝试次数 : ' + str(num) + '\n花费的时间是' + str(total_time) + 's'+'\n你真是个小机灵鬼!')
         elif total_time <= 25:
             labelqval('厉害啦！！！10次以内就猜中了\n尝试次数 : ' + str(num) + '\n花费的时间是' + str(total_time) + 's'+'\n普普通通.......')
         else:
@@ -65,6 +65,7 @@ def labelqval(vText):
     label_val_q.config(label_val_q,text = vText)
 
 root = tk.Tk(className="猜数字游戏")
+root.title("猜数字 / 反应测试")
 root.geometry("400x160+200+200")
 
 line_a_tip=tk.Frame(root)

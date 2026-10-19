@@ -2,6 +2,25 @@ import time
 import pygame
 import datetime
 
+from pathlib import Path
+
+_FONT_CANDIDATES = [
+    Path("C:/Windows/Fonts/msyh.ttc"),
+    Path("C:/Windows/Fonts/simhei.ttf"),
+    Path("C:/Windows/Fonts/simsun.ttc"),
+]
+_FONT_PATH = next((path for path in _FONT_CANDIDATES if path.exists()), None)
+
+
+def _ui_font(size):
+    pygame.font.init()
+    if _FONT_PATH is not None:
+        try:
+            return pygame.font.Font(str(_FONT_PATH), size)
+        except Exception:
+            pass
+    return pygame.font.Font(None, size)
+
 
 class Paint(object):
     # 初始化
@@ -21,7 +40,7 @@ class Paint(object):
 
         # part_1: easy
         # pygame.draw.rect(self.selected_form, (128, 128, 128), (0, 0, 260, 100))
-        selected_font = pygame.font.SysFont('simsunnsimsun', 30, True)
+        selected_font = _ui_font(30)
         easy_text = selected_font.render('简 单', True, (0, 0, 0))
         selected_form.blit(easy_text, (90, 30))
 
@@ -62,13 +81,13 @@ class Paint(object):
         # 添加标题
         # f = pygame.font.get_fonts()  #: 获取字体样式
         # pygame.font.Font.render(): 在一个新 Surface 对象上绘制文本
-        title_font = pygame.font.SysFont('幼圆', 50, True)
+        title_font = _ui_font(50)
         title_text = title_font.render('数 独', True, (0, 0, 0))
         form.blit(title_text, (120, 10))
 
         # 添加时间: 计时: 0:00:00
         pygame.draw.rect(form, (128, 128, 128), (380, 0, 130, 70))
-        time_font = pygame.font.SysFont('幼圆', 28, True)
+        time_font = _ui_font(28)
         time_text = time_font.render('计 时', True, (0, 0, 0))
         form.blit(time_text, (405, 5))
 
@@ -80,7 +99,7 @@ class Paint(object):
         # time.sleep(1)
 
         # 添加游戏说明
-        tips_font = pygame.font.SysFont('simsunnsimsun', 20)
+        tips_font = _ui_font(20)
         tips_text = tips_font.render('利用逻辑和推理，在其他的空格上填入1-9的数字。', True, (0, 0, 0))
         form.blit(tips_text, (25, 70))
 
@@ -121,7 +140,7 @@ class Paint(object):
                     pygame.draw.rect(form, (220, 220, 220), (x + 5, y + 140, block_size, block_size))
 
                 # 绘制数字
-                num_font = pygame.font.SysFont('幼圆', 45, True)  # 数字字体类型及大小
+                num_font = _ui_font(45)  # 数字字体类型及大小
                 if martix[i][j] != 0:
                     if [i, j] not in empty and [i, j] not in is_same:
                         num_text = num_font.render(str(martix[i][j]), True, (0, 0, 0))
@@ -137,13 +156,13 @@ class Paint(object):
 
         """ 如果游戏成功 """
         if issuccess:
-            success_font = pygame.font.SysFont("simsunnsimsun", 60, True)
+            success_font = _ui_font(60)
             str_text = success_font.render('Successful!', True, (178, 34, 34))
             form.blit(str_text, (85, 360))
 
         """ 游戏未开始 """
         if not start:
             pygame.draw.rect(form, (192, 192, 192), (100, 250, 360, 300))
-            font = pygame.font.SysFont("幼圆", 40, True)
+            font = _ui_font(40)
             str_text = font.render('空格开始', True, (0, 0, 0))
             form.blit(str_text, (190, 360))

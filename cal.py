@@ -171,12 +171,12 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         value = str(sin_t(float(eval(value))))
                         content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         value = str(sin_t(float(eval(value))))
                         content = content.replace(exchange1, value)
@@ -187,12 +187,12 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         value = str(cos_t(float(value)))
                         content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         value = str(cos_t(float(value)))
                         content = content.replace(exchange1, value)
@@ -203,12 +203,12 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         value = str(tan_t(float(value)))
                         content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         value = str(tan_t(float(value)))
                         content = content.replace(exchange1, value)
@@ -219,12 +219,12 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         value = str(sec_t(float(value)))
                         content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         value = str(sec_t(float(value)))
                         content = content.replace(exchange1, value)
@@ -235,12 +235,12 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         value = str(csc_t(float(value)))
                         content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         value = str(csc_t(float(value)))
                         content = content.replace(exchange1, value)
@@ -251,7 +251,7 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         if float(value) <= 0:
                             tk.messagebox.showerror('错误', 'FORMAT ERROR')
@@ -259,7 +259,7 @@ def buttonClick(btn):
                             value = str(lg_t(float(value)))
                             content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         if int(value) <= 0:
                             tk.messagebox.showerror('错误', 'FORMAT ERROR')
@@ -273,7 +273,7 @@ def buttonClick(btn):
                     exchange = m.group()
                     exchange1 = exchange
                     if '.' in exchange:
-                        exchange = re.search("\-?\d+\.\d+", exchange)
+                        exchange = re.search(r"\-?\d+\.\d+", exchange)
                         value = exchange.group()
                         if float(value) <= 0:
                             tk.messagebox.showerror('错误', 'FORMAT ERROR')
@@ -281,7 +281,7 @@ def buttonClick(btn):
                             value = str(ln_t(float(value)))
                             content = content.replace(exchange1, value)
                     else:
-                        exchange = re.search("\-?\d+", exchange)
+                        exchange = re.search(r"\-?\d+", exchange)
                         value = exchange.group()
                         if int(value) <= 0:
                             tk.messagebox.showerror('错误', 'FORMAT ERROR')
